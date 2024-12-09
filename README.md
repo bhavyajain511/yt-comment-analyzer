@@ -10,10 +10,6 @@
 2. [Features](#features)  
 3. [Technologies Used](#technologies-used)  
 4. [Setup and Installation](#setup-and-installation)  
-5. [Usage](#usage)  
-6. [Project Structure](#project-structure)  
-7. [Contributing](#contributing)  
-8. [License](#license)  
 
 ---
 
