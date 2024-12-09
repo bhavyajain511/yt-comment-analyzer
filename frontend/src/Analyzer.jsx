@@ -16,7 +16,7 @@ const Analyzer = () => {
         .then(response => {
             console.log(response)
           setResult(response.data);
-          setTimeout(2500)
+          setTimeout(4000)
           console.log(result)
           calOverAllScore(result);
         })
