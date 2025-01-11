@@ -16,8 +16,8 @@ const Analyzer = () => {
         .then(response => {
             console.log(response)
           setResult(response.data);
-          setTimeout(4000)
-          console.log(result)
+        //   setTimeout(4000)
+        //   console.log(result)
           calOverAllScore(result);
         })
         .catch(error => {
