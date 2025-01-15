@@ -80,8 +80,11 @@ model_sarcasm.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossent
 
 import pickle
 
+tokenizer_filename = 'tokenizer.pkl'
+tokenizer_path = os.path.join(root_path, tokenizer_filename)
+
 # Load the tokenizer
-with open('tokenizer.pkl', 'rb') as file:
+with open(tokenizer_path, 'rb') as file:
     tokenizer = pickle.load(file)
 
 
