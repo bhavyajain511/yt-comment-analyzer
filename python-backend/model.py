@@ -8,6 +8,7 @@
 import pandas as pd
 import numpy as np
 import tensorflow as tf
+import os
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense, Flatten, GRU, Bidirectional, Input
 from tensorflow.keras.preprocessing.text import Tokenizer
@@ -51,8 +52,12 @@ class AttentionLayer(Layer):
 
 from tensorflow.keras.models import load_model
 
+root_path = os.path.dirname(os.path.abspath(__file__))  
+model_sentiment_filename = 'model_1.h5'
+model_sentiment_path = os.path.join(root_path, model_sentiment_filename)
+
 # Load the senti ment analysis model, specifying the custom layer
-model_sentiment = load_model('model_1.h5', custom_objects={'AttentionLayer': AttentionLayer})
+model_sentiment = load_model(model_sentiment_path, custom_objects={'AttentionLayer': AttentionLayer})
 # model_sentiment = load_model('final_model.h5', custom_objects={'AttentionLayer': AttentionLayer})
 model_sentiment.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
@@ -62,7 +67,11 @@ model_sentiment.compile(optimizer='adam', loss='sparse_categorical_crossentropy'
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.optimizers import Adam
-model_sarcasm = load_model('new_model_sarcasm.h5')
+
+model_sarcasm_filename = 'new_model_sarcasm.h5'
+model_sarcasm_path = os.path.join(root_path, model_sarcasm_filename)
+
+model_sarcasm = load_model(model_sarcasm_filename)
 model_sarcasm.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
 
 
