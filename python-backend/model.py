@@ -71,7 +71,7 @@ from tensorflow.keras.optimizers import Adam
 model_sarcasm_filename = 'new_model_sarcasm.h5'
 model_sarcasm_path = os.path.join(root_path, model_sarcasm_filename)
 
-model_sarcasm = load_model(model_sarcasm_filename)
+model_sarcasm = load_model(model_sarcasm_path)
 model_sarcasm.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
 
 
