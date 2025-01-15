@@ -8,11 +8,13 @@ const Analyzer = () => {
     const [youtubeLink, setYoutubeLink] = useState('');
     const [result, setResult] = useState(null);
     const [overallScore,setOverallScore]=useState(0.0);
+    const MODE= import.meta.env.VITE_MODE;
+    const BASE_URL= MODE==='development'?'http://127.0.0.1:5000': import.meta.env.VITE_BASE_URL;
 
     const handleAnalyzeClick = () => {
         console.log('YouTube Link:', youtubeLink);
 
-        axios.post('http://127.0.0.1:5000/analyze', { youtubeLink: youtubeLink })
+        axios.post(`${BASE_URL}/analyze`, { youtubeLink: youtubeLink })
         .then(response => {
             console.log(response)
           setResult(response.data);
